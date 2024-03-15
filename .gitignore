@@ -17,3 +17,6 @@
 
 # Ignore VScode folder generated from an extension
 .vscode
+
+# Ignore node_modules folder to avoid accidental uploads
+node_modules
