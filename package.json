@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/stephenikuomola/interactive-card-details-form#readme",
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-google": "^0.14.0",
     "parcel": "^2.12.0"
   }
 }
