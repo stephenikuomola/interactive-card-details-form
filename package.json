@@ -2,20 +2,31 @@
   "name": "interactive-card-details-form-main",
   "version": "1.0.0",
   "description": "![Design preview for the Interactive card details form coding challenge](./design/desktop-preview.jpg)",
-  "source": "index.html", 
+  "source": "index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stephenikuomola/interactive-card-details-form.git"
   },
-  "keywords": ["HTML", "CSS", "JavaScript", "Forms", "Parcel", "ESLint", "JSDoc "],
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Forms",
+    "Parcel",
+    "ESLint",
+    "JSDoc "
+  ],
   "author": "Stephen Ikuomola",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/stephenikuomola/interactive-card-details-form/issues"
   },
-  "homepage": "https://github.com/stephenikuomola/interactive-card-details-form#readme"
+  "homepage": "https://github.com/stephenikuomola/interactive-card-details-form#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
