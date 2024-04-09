@@ -1,28 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 
-  <!-- Fonts -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/card.css" />
 
-  <!-- JavaScript -->
-  <title>Interactive card details form</title>
+    <!-- JavaScript -->
+    <script type="module" src="/src/card.js"></script>
 
+    <!-- Title -->
+    <title>Interactive card details form</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="interactive-card__container">
+        <div class="container__image-front">
+          <img src="/assets/images/bg-card-front.png" alt="front card image" />
+          <img
+            src="/assets/images/card-logo.svg"
+            alt="card logo"
+            class="card-logo"
+          />
+          <p class="card-owner-name">Stephen Ikuomola</p>
+          <p class="card-owner-number">0000 0000 0000 0000</p>
+          <p class="card-owner-expiration-date">00/00</p>
+        </div>
+        <div class="container__image-back">
+          <img src="/assets/images/bg-card-back.png" alt="rear card image" />
+          <p class="card-owner-cvv">000</p>
+        </div>
+      </div>
 
-</head>
-<body>
+      <div class="interactive-card__wrapper">
+        <!-- The standard way of building forms that make it accessible to screen readers.  -->
 
-  
+        <!-- Use the enterkeyhint attribute on the form input to make is possible to set the mobile keyboard enter key label. This is supported on iOS and Android -->
+        <form id="form">
+          <div class="form__card-name">
+            <label for="card-name">Cardholder Name</label>
+            <input
+              type="text"
+              id="card-name"
+              name="card-name"
+              autocomplete="cc-name"
+              max-length="100"
+              pattern="[\p{L} \-\.]+"
+              placeholder="e.g. Stephen Ikuomola"
+              aria-errormessage="error-card-name"
+              enterkeyhint="next"
+              required
+            />
+            <p class="error" aria-live="polite" id="error-card-name"></p>
+          </div>
+          <div class="form__card-number">
+            <label for="card-number">Card Number</label>
+            <input
+              type="text"
+              id="card-number"
+              name="cc-number"
+              inputmode="numeric"
+              pattern="[\d ]{16}"
+              placeholder="e.g. 1234 5678 9123 0000"
+              aria-errormessage="error-card-number"
+              enterkeyhint="next"
+              required
+            />
+            <p class="error" aria-live="polite" id="error-card-number"></p>
+          </div>
+          <div class="card-exp-date-cvc">
+            <div class="form__card-exp-date">
+              <p class="card-exp-date">Exp. Date (MM/YY)</p>
+              <div class="card-exp-date__wrapper">
+                <div class="form__card-exp-date__month">
+                  <label for="card-month" class="src-only">Month</label>
+                  <input
+                    type="text"
+                    id="card-month"
+                    name="card-month"
+                    auto-complete="cc-exp-month"
+                    inputmode="numeric"
+                    pattern="^(?:0?[1-9]|1[0-2])$"
+                    placeholder="MM"
+                    aria-errormessage="error-card-exp-date"
+                    enterkeyhint="next"
+                    required
+                  />
+                </div>
+                <div class="form__card-exp-date__year">
+                  <label for="card-year" class="src-only">Year</label>
+                  <input
+                    type="text"
+                    id="card-year"
+                    name="card-year"
+                    auto-complete="cc-exp-year"
+                    inputmode="numeric"
+                    placeholder="YY"
+                    pattern="\d{2}"
+                    aria-errormessage="error-card-exp-date"
+                    enterkeyhint="next"
+                    required
+                  />
+                </div>
+              </div>
+              <p class="error" id="error-card-exp-date" aria-live="polite"></p>
+            </div>
+            <div class="form__card-cvc">
+              <label for="card-cvc">CVC</label>
+              <input
+                type="text"
+                id="card-cvc"
+                name="card-cvc"
+                inputmode="numeric"
+                placeholder="e.g. 123"
+                pattern="\d{3}"
+                aria-errormessage="error-card-cvc"
+                enterkeyhint="done"
+                required
+              />
+              <p class="error" id="error-card-cvc " aria-live="polite">
+              </p>
+            </div>
+          </div>
+          <button class="btn-submit" type="submit">Confirm</button>
+        </form>
 
-</body>
+        <!-- Loading spinner implementation -->
+        <div class="loading-spinner">
+          <svg
+            class="spinner"
+            width="65px"
+            height="65px"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              class="path"
+              fill="none"
+              stroke-width="6"
+              stroke-linecap="round"
+              cx="33"
+              cy="33"
+              r="30"
+            ></circle>
+          </svg>
+        </div>
+
+        <!-- Thank You message -->
+        <section hidden class="interactive-card__info-feedback">
+          <img
+            src="/assets/images/icon-complete.svg"
+            alt="complete-icon"
+            aria-hidden="true"
+          />
+          <h1 class="feedback-message__heading">Thank you!</h1>
+          <p class="feedback-message__text">We've added your card details</p>
+          <button class="btn-continue" type="button">Continue</button>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
