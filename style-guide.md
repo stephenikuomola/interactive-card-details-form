@@ -1,6 +1,6 @@
 # Card Details style-guide
 
-The project was built to be responsive across all devices. 
+The project was built to be responsive across all devices.
 
 - Mobile
 - Tablet
@@ -9,13 +9,13 @@ The project was built to be responsive across all devices.
 ## Colors
 
 ```css
---blue: hsl(249, 99%, 64%); 
---purple: hsl(278, 94%, 30%); 
---red: hsl(0, 100%, 66%); 
---white: hsl(0, 0%, 100%); 
---light-grayish-violet: hsl(270, 3%, 87%); 
---dark-grayish-violet: hsl(279, 6%, 55%); 
---very-dark-violet: hsl(278, 68%, 11%); 
+--blue: hsl(249, 99%, 64%);
+--purple: hsl(278, 94%, 30%);
+--red: hsl(0, 100%, 66%);
+--white: hsl(0, 0%, 100%);
+--light-grayish-violet: hsl(270, 3%, 87%);
+--dark-grayish-violet: hsl(279, 6%, 55%);
+--very-dark-violet: hsl(278, 68%, 11%);
 ```
 
 ## Gap
@@ -77,7 +77,7 @@ The project was built to be responsive across all devices.
 --radius-2: 4px;
 --radius-3: 6px;
 --radius-4: 8px;
---radius-5: 10px; 
+--radius-5: 10px;
 --radius-6: 12px;
 --radius-7: 16px;
 --radius-8: 20px;
@@ -95,9 +95,12 @@ The project was built to be responsive across all devices.
 ## Typography
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 ```css
@@ -111,7 +114,7 @@ The project was built to be responsive across all devices.
 --fw-600: 600;
 --fw-700: 700;
 --fw-800: 800;
---font-style: normal; 
+--font-style: normal;
 --line-height-none: 1;
 --line-height-tight: 1.25;
 --line-height-snug: 1.375;
@@ -159,4 +162,15 @@ The project was built to be responsive across all devices.
 --space-m-xl: clamp(0.875rem, 0.5424rem + 2.314vi, 2.625rem);
 --space-l-2xl: clamp(1.125rem, 0.6736rem + 3.1405vi, 3.5rem);
 --space-xl-3xl: clamp(1.6875rem, 1.0103rem + 4.7107vi, 5.25rem);
+```
+
+## Screen Readers
+```css
+--sr-only-width: 1px;
+--sr-only-height: 1px;
+--sr-only-padding: 0px;
+--sr-only-margin: -1px;
+--sr-only-border-width: 0;
+--sr-only-left: -1000px;
+--sr-only-top: auto;
 ```
