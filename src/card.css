@@ -356,11 +356,12 @@ input[aria-invalid="true"] {
   outline: 1px solid var(--red);
 }
 
+
 p[class~="error"] {
   display: var(--hidden);
 }
 
-p[class~="error-show"] {
+p[class~="active"] {
   display: var(--block);
   color: var(--red);
   font-size: var(--font-size-0);
@@ -368,7 +369,9 @@ p[class~="error-show"] {
   font-weight: var(--fw-500);
   line-height: var(--line-height-normal);
   margin-top: var(--gap-5);
-} 
+}
+
+
 
 /* Styling the buttons */
 button {
@@ -391,12 +394,17 @@ button:focus-visible {
   outline-offset: 4px;
 }
 
+/* Styling the loading spinner */
 div[class~="loading-spinner"] {
+  display: none; 
+}
+
+.active.loading-spinner {
   width: 100px;
   padding-block: 0.5rem;
+  margin-block-start: 11rem; 
   margin-inline: auto;
-  margin-block-start: 20rem;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -534,6 +542,10 @@ img[alt="complete-icon"] {
     width: 50%;
     margin-inline-start: 18rem;
     margin-block-start: 12rem;
+  }
+
+  .active.loading-spinner {
+    margin-block-start: 20rem; 
   }
 }
 
