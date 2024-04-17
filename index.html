@@ -54,7 +54,9 @@
           />
           <p class="card-owner-name">Stephen Ikuomola</p>
           <p class="card-owner-number">0000 0000 0000 0000</p>
-          <p class="card-owner-expiration-date">00/00</p>
+          <p class="card-owner-expiration-date">
+            <span class="card-owner-expiration-date__month">00</span>/<span class="card-owner-expiration-date__year">00</span>
+          </p>
         </div>
         <div class="container__image-back">
           <img src="/assets/images/bg-card-back.png" alt="rear card image" />
@@ -66,7 +68,8 @@
         <!-- The standard way of building forms that make it accessible to screen readers.  -->
 
         <!-- Use the enterkeyhint attribute on the form input to make is possible to set the mobile keyboard enter key label. This is supported on iOS and Android -->
-        <form id="form">
+        <form id="form" novalidate>
+          <!-- The novalidate attribute simply removes those error message bubbles shown by default by the browser -->
           <div class="form__card-name">
             <label for="card-name">Cardholder Name</label>
             <input
@@ -74,7 +77,7 @@
               id="card-name"
               name="card-name"
               autocomplete="cc-name"
-              max-length="100"
+              maxlength="100"
               pattern="[\p{L} \-\.]+"
               placeholder="e.g. Stephen Ikuomola"
               aria-errormessage="error-card-name"
@@ -90,7 +93,7 @@
               id="card-number"
               name="cc-number"
               inputmode="numeric"
-              pattern="[\d ]{16}"
+              pattern="\d{4} \d{4} \d{4} \d{4}"
               placeholder="e.g. 1234 5678 9123 0000"
               aria-errormessage="error-card-number"
               enterkeyhint="next"
@@ -112,10 +115,12 @@
                     inputmode="numeric"
                     pattern="^(?:0?[1-9]|1[0-2])$"
                     placeholder="MM"
-                    aria-errormessage="error-card-exp-date"
+                    aria-errormessage="error-card-exp-month"
                     enterkeyhint="next"
+                    maxlength="2"
                     required
-                  />
+                    />
+                  <p class="error" id="error-card-exp-month" aria-live="polite"></p>
                 </div>
                 <div class="form__card-exp-date__year">
                   <label for="card-year" class="src-only">Year</label>
@@ -127,13 +132,14 @@
                     inputmode="numeric"
                     placeholder="YY"
                     pattern="\d{2}"
-                    aria-errormessage="error-card-exp-date"
+                    aria-errormessage="error-card-exp-year"
                     enterkeyhint="next"
+                    maxlength="2"
                     required
                   />
+                  <p class="error" id="error-card-exp-year" aria-live="polite"></p>
                 </div>
               </div>
-              <p class="error" id="error-card-exp-date" aria-live="polite"></p>
             </div>
             <div class="form__card-cvc">
               <label for="card-cvc">CVC</label>
@@ -146,11 +152,11 @@
                 pattern="\d{3}"
                 aria-errormessage="error-card-cvc"
                 enterkeyhint="done"
+                maxlength="3"
                 required
-              />
-              <p class="error" id="error-card-cvc " aria-live="polite">
-              </p>
-            </div>
+                />
+              <p class="error" id="error-card-cvc" aria-live="polite"></p>
+              </div>
           </div>
           <button class="btn-submit" type="submit">Confirm</button>
         </form>
