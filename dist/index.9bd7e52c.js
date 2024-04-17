@@ -615,8 +615,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         this.#securityNumber?.addEventListener("change", this.#handleCardSecurityInput);
     }
     /**
-   * 
-   * @param {Event} evtObj 
+   *
+   * @param {Event} evtObj
    */ #handleCardNumberInput(evtObj) {
         if (evtObj.target instanceof HTMLInputElement) {
             const cardNumber = /** @type {HTMLParagraphElement} */ document.querySelector(".card-owner-number");
@@ -630,8 +630,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         }
     }
     /**
-   * 
-   * @param {Event} evtObj 
+   *
+   * @param {Event} evtObj
    */ #handleCardSecurityInput(evtObj) {
         if (evtObj.target instanceof HTMLInputElement) {
             const cardSecurity = /** @type {HTMLParagraphElement}*/ document.querySelector(".card-owner-cvv");
@@ -639,8 +639,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         }
     }
     /**
-   * 
-   * @param {Event} evtObj - The event object 
+   *
+   * @param {Event} evtObj - The event object
    */ #handleCardYearInput(evtObj) {
         if (evtObj.target instanceof HTMLInputElement) {
             const cardYear = /** @type {HTMLSpanElement}*/ document.querySelector(".card-owner-expiration-date__year");
@@ -671,13 +671,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         evtObj.preventDefault();
         try {
             this.#validateUserInput();
-            // Hide the form 
+            // Hide the form
             this.#form.style.display = "none";
-            // show the loading animation. 
+            // show the loading animation.
             this.#loadSpinner();
             // Simulate a delay (10 seconds)
             await new Promise((resolve)=>setTimeout(resolve, 10000));
-            // Remove the loading spinner 
+            // Remove the loading spinner
             this.#removeLoadSpinner();
             // Add the feedback message
             this.#feedback.removeAttribute("hidden");
@@ -687,7 +687,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         }
     }
     /**
-   * This method takes in no parameter. 
+   * This method takes in no parameter.
    */ #loadSpinner() {
         this.#loadingSpinner.classList.add("active");
     }
@@ -711,10 +711,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         return error;
     }
     /**
-   * 
-   * @param {HTMLInputElement} input 
-   * @param {string} message 
-   * @param {string} className 
+   *
+   * @param {HTMLInputElement} input
+   * @param {string} message
+   * @param {string} className
    * @return {object}
    */ #removeError(input, message, className) {
         input.setAttribute("aria-invalid", "false");
@@ -732,7 +732,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
         const inputElements = /** @type {NodeList} */ document.querySelectorAll("input");
         inputElements.forEach(function(inputElement) {
             if (inputElement instanceof HTMLInputElement) {
-                // If an input element does not contain any data on form submission. Can't 
+                // If an input element does not contain any data on form submission. Can't
                 if (inputElement.value.trim() === "" || inputElement.validity.valueMissing) {
                     const userError = this.#generateError(inputElement, "Cannot be blank", "error active");
                     userErrors.push(userError);

@@ -44,56 +44,72 @@ class FormComponent {
   constructor() {
     // Handle the form submission event form the user.
     this.#form?.addEventListener('submit', this.#handleFormSubmit.bind(this));
-    this.#name?.addEventListener('change', this.#handleCardNameInput); 
-    this.#number?.addEventListener('input', this.#handleCardNumberInput); 
-    this.#month?.addEventListener('change', this.#handleCardMonthInput); 
-    this.#year?.addEventListener('change', this.#handleCardYearInput); 
-    this.#securityNumber?.addEventListener('change', this.#handleCardSecurityInput); 
+    this.#name?.addEventListener('change', this.#handleCardNameInput);
+    this.#number?.addEventListener('input', this.#handleCardNumberInput);
+    this.#month?.addEventListener('change', this.#handleCardMonthInput);
+    this.#year?.addEventListener('change', this.#handleCardYearInput);
+    this.#securityNumber?.addEventListener(
+      'change',
+      this.#handleCardSecurityInput
+    );
   }
 
   /**
-   * 
-   * @param {Event} evtObj 
+   *
+   * @param {Event} evtObj
    */
   #handleCardNumberInput(evtObj) {
     if (evtObj.target instanceof HTMLInputElement) {
-      const cardNumber = /** @type {HTMLParagraphElement} */ (document.querySelector('.card-owner-number')); 
+      const cardNumber = /** @type {HTMLParagraphElement} */ (
+        document.querySelector('.card-owner-number')
+      );
 
-      const cardNumberInput = evtObj.target; 
-      const position = cardNumberInput.selectionEnd; 
-      const length = cardNumberInput.value.length; 
+      const cardNumberInput = evtObj.target;
+      const position = cardNumberInput.selectionEnd;
+      const length = cardNumberInput.value.length;
 
-      cardNumberInput.value = cardNumberInput.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+      cardNumberInput.value = cardNumberInput.value
+        .replace(/[^\dA-Z]/g, '')
+        .replace(/(.{4})/g, '$1 ')
+        .trim();
 
-      if (position !== length && (position !== length - 1 || isNaN(parseInt(cardNumberInput.value[position],10)))) {
-        cardNumberInput.selectionEnd = position
+      if (
+        position !== length &&
+        (position !== length - 1 ||
+          isNaN(parseInt(cardNumberInput.value[position], 10)))
+      ) {
+        cardNumberInput.selectionEnd = position;
       }
 
-      cardNumber.textContent = cardNumberInput.value; 
+      cardNumber.textContent = cardNumberInput.value;
 
-      console.log(position, length, cardNumberInput.value); 
+      console.log(position, length, cardNumberInput.value);
     }
   }
 
   /**
-   * 
-   * @param {Event} evtObj 
+   *
+   * @param {Event} evtObj
    */
   #handleCardSecurityInput(evtObj) {
     if (evtObj.target instanceof HTMLInputElement) {
-      const cardSecurity = /** @type {HTMLParagraphElement}*/ (document.querySelector('.card-owner-cvv')); 
-      cardSecurity.textContent = evtObj.target?.value; 
+      const cardSecurity = /** @type {HTMLParagraphElement}*/ (
+        document.querySelector('.card-owner-cvv')
+      );
+      cardSecurity.textContent = evtObj.target?.value;
     }
   }
 
   /**
-   * 
-   * @param {Event} evtObj - The event object 
+   *
+   * @param {Event} evtObj - The event object
    */
   #handleCardYearInput(evtObj) {
     if (evtObj.target instanceof HTMLInputElement) {
-      const cardYear = /** @type {HTMLSpanElement}*/ (document.querySelector('.card-owner-expiration-date__year')); 
-      cardYear.textContent = evtObj.target?.value; 
+      const cardYear = /** @type {HTMLSpanElement}*/ (
+        document.querySelector('.card-owner-expiration-date__year')
+      );
+      cardYear.textContent = evtObj.target?.value;
     }
   }
 
@@ -102,8 +118,10 @@ class FormComponent {
    */
   #handleCardMonthInput(evtObj) {
     if (evtObj.target instanceof HTMLInputElement) {
-      const cardMonth = /** @type {HTMLSpanElement}*/ (document.querySelector('.card-owner-expiration-date__month')); 
-      cardMonth.textContent = evtObj.target?.value; 
+      const cardMonth = /** @type {HTMLSpanElement}*/ (
+        document.querySelector('.card-owner-expiration-date__month')
+      );
+      cardMonth.textContent = evtObj.target?.value;
     }
   }
 
@@ -112,10 +130,11 @@ class FormComponent {
    */
   #handleCardNameInput(evtObj) {
     if (evtObj.target instanceof HTMLInputElement) {
-      const cardName = /** @type {HTMLParagraphElement}*/ (document.querySelector('.card-owner-name')); 
-      cardName.textContent = evtObj.target?.value.toUpperCase(); 
+      const cardName = /** @type {HTMLParagraphElement}*/ (
+        document.querySelector('.card-owner-name')
+      );
+      cardName.textContent = evtObj.target?.value.toUpperCase();
     }
-
   }
 
   /**
@@ -129,39 +148,38 @@ class FormComponent {
     try {
       this.#validateUserInput();
 
-      // Hide the form 
-      this.#form.style.display = 'none'; 
-  
-      // show the loading animation. 
-      this.#loadSpinner(); 
+      // Hide the form
+      this.#form.style.display = 'none';
+
+      // show the loading animation.
+      this.#loadSpinner();
 
       // Simulate a delay (10 seconds)
-      await new Promise(resolve => setTimeout(resolve, 10000));
+      await new Promise((resolve) => setTimeout(resolve, 10000));
 
-      // Remove the loading spinner 
-      this.#removeLoadSpinner(); 
+      // Remove the loading spinner
+      this.#removeLoadSpinner();
 
       // Add the feedback message
-      this.#feedback.removeAttribute('hidden'); 
-
-    } catch(error) {
+      this.#feedback.removeAttribute('hidden');
+    } catch (error) {
       // The error will be handled here. Although, we would not need to handle anything serious
-      console.error(error); 
+      console.error(error);
     }
   }
 
   /**
-   * This method takes in no parameter. 
+   * This method takes in no parameter.
    */
   #loadSpinner() {
-    this.#loadingSpinner.classList.add('active'); 
+    this.#loadingSpinner.classList.add('active');
   }
 
   /**
    * This method takes in no parameter
    */
   #removeLoadSpinner() {
-    this.#loadingSpinner.classList.remove('active'); 
+    this.#loadingSpinner.classList.remove('active');
   }
 
   /**
@@ -174,27 +192,26 @@ class FormComponent {
   #generateError(input, message, className) {
     input.setAttribute('aria-invalid', 'true');
     const error = {
-      message, 
+      message,
       className
     };
     return error;
   }
 
   /**
-   * 
-   * @param {HTMLInputElement} input 
-   * @param {string} message 
-   * @param {string} className 
+   *
+   * @param {HTMLInputElement} input
+   * @param {string} message
+   * @param {string} className
    * @return {object}
    */
   #removeError(input, message, className) {
-    input.setAttribute('aria-invalid', 'false'); 
+    input.setAttribute('aria-invalid', 'false');
     const error = {
-      message, 
+      message,
       className
-    }; 
-    return error; 
-
+    };
+    return error;
   }
 
   /**
@@ -209,8 +226,7 @@ class FormComponent {
 
     inputElements.forEach(function (inputElement) {
       if (inputElement instanceof HTMLInputElement) {
-
-        // If an input element does not contain any data on form submission. Can't 
+        // If an input element does not contain any data on form submission. Can't
 
         if (
           inputElement.value.trim() === '' ||
@@ -218,48 +234,52 @@ class FormComponent {
         ) {
           const userError = this.#generateError(
             inputElement,
-            'Cannot be blank', 
+            'Cannot be blank',
             'error active'
           );
-          userErrors.push(userError); 
-        }else if (inputElement.validity.patternMismatch && inputElement.getAttribute('id') === 'card-name') {
+          userErrors.push(userError);
+        } else if (
+          inputElement.validity.patternMismatch &&
+          inputElement.getAttribute('id') === 'card-name'
+        ) {
           const userError = this.#generateError(
             inputElement,
-            'Wrong Format, letters only', 
+            'Wrong Format, letters only',
             'error active'
           );
-            userErrors.push(userError);
-        }else if (
-          inputElement.getAttribute('id') !== 'card-name'&&
+          userErrors.push(userError);
+        } else if (
+          inputElement.getAttribute('id') !== 'card-name' &&
           inputElement.validity.patternMismatch
         ) {
           const userError = this.#generateError(
             inputElement,
-            'Wrong Format, numbers only', 
+            'Wrong Format, numbers only',
             'error active'
           );
           userErrors.push(userError);
-        }else {
-          const userError = this.#removeError(inputElement, '', 'error'); 
-          userErrors.push(userError); 
-        } 
+        } else {
+          const userError = this.#removeError(inputElement, '', 'error');
+          userErrors.push(userError);
+        }
       }
     }, this);
 
-    const errorCardMessages = /** @type {NodeListOf<HTMLParagraphElement>}*/ (document.querySelectorAll('.error')); 
+    const errorCardMessages = /** @type {NodeListOf<HTMLParagraphElement>}*/ (
+      document.querySelectorAll('.error')
+    );
 
-    errorCardMessages.forEach(function(errorCardMessage, index) {
-      errorCardMessage.textContent = userErrors[index].message; 
-      errorCardMessage.className = userErrors[index].className; 
-    }); 
+    errorCardMessages.forEach(function (errorCardMessage, index) {
+      errorCardMessage.textContent = userErrors[index].message;
+      errorCardMessage.className = userErrors[index].className;
+    });
 
-    userErrors.forEach(function(userError) {
-      if(!(userError.message === '' && userError.className === 'error')) { 
-        throw userErrors; 
+    userErrors.forEach(function (userError) {
+      if (!(userError.message === '' && userError.className === 'error')) {
+        throw userErrors;
       }
-    })
+    });
   }
 }
 
 new FormComponent();
-

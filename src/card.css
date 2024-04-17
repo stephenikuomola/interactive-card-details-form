@@ -356,7 +356,6 @@ input[aria-invalid="true"] {
   outline: 1px solid var(--red);
 }
 
-
 p[class~="error"] {
   display: var(--hidden);
 }
@@ -370,8 +369,6 @@ p[class~="active"] {
   line-height: var(--line-height-normal);
   margin-top: var(--gap-5);
 }
-
-
 
 /* Styling the buttons */
 button {
@@ -396,13 +393,13 @@ button:focus-visible {
 
 /* Styling the loading spinner */
 div[class~="loading-spinner"] {
-  display: none; 
+  display: none;
 }
 
 .active.loading-spinner {
   width: 100px;
   padding-block: 0.5rem;
-  margin-block-start: 11rem; 
+  margin-block-start: 11rem;
   margin-inline: auto;
   display: flex;
   align-items: center;
@@ -545,7 +542,7 @@ img[alt="complete-icon"] {
   }
 
   .active.loading-spinner {
-    margin-block-start: 20rem; 
+    margin-block-start: 20rem;
   }
 }
 

@@ -165,6 +165,7 @@ The project was built to be responsive across all devices.
 ```
 
 ## Screen Readers
+
 ```css
 --sr-only-width: 1px;
 --sr-only-height: 1px;

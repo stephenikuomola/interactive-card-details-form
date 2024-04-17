@@ -55,7 +55,10 @@
           <p class="card-owner-name">Stephen Ikuomola</p>
           <p class="card-owner-number">0000 0000 0000 0000</p>
           <p class="card-owner-expiration-date">
-            <span class="card-owner-expiration-date__month">00</span>/<span class="card-owner-expiration-date__year">00</span>
+            <span class="card-owner-expiration-date__month">00</span>/<span
+              class="card-owner-expiration-date__year"
+              >00</span
+            >
           </p>
         </div>
         <div class="container__image-back">
@@ -119,8 +122,12 @@
                     enterkeyhint="next"
                     maxlength="2"
                     required
-                    />
-                  <p class="error" id="error-card-exp-month" aria-live="polite"></p>
+                  />
+                  <p
+                    class="error"
+                    id="error-card-exp-month"
+                    aria-live="polite"
+                  ></p>
                 </div>
                 <div class="form__card-exp-date__year">
                   <label for="card-year" class="src-only">Year</label>
@@ -137,7 +144,11 @@
                     maxlength="2"
                     required
                   />
-                  <p class="error" id="error-card-exp-year" aria-live="polite"></p>
+                  <p
+                    class="error"
+                    id="error-card-exp-year"
+                    aria-live="polite"
+                  ></p>
                 </div>
               </div>
             </div>
@@ -154,9 +165,9 @@
                 enterkeyhint="done"
                 maxlength="3"
                 required
-                />
+              />
               <p class="error" id="error-card-cvc" aria-live="polite"></p>
-              </div>
+            </div>
           </div>
           <button class="btn-submit" type="submit">Confirm</button>
         </form>
