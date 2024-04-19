@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="./assets/favicons/apple-touch-.png" />
+  <img src="./assets/favicons/apple-touch-icon.png" />
   <h2 align="center">Interactive Card Form </h2>
 	A fully responsive interactive card form <br />
   Responsive for all devices using HTML, CSS, and JavaScript.
