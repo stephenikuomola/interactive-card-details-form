@@ -23,7 +23,6 @@ class FormComponent {
     document.getElementById('card-cvc')
   );
 
-
   // Select the loading spinner
   #loadingSpinner = /** @type {HTMLDivElement} */ (
     document.querySelector('.loading-spinner')
