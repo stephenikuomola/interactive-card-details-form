@@ -1,5 +1,3 @@
-# Untitled
-
 
 <div align="center">
   <img src="./assets/favicons/apple-touch-icon.png" />
