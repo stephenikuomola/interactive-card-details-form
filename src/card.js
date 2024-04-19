@@ -23,10 +23,6 @@ class FormComponent {
     document.getElementById('card-cvc')
   );
 
-  // Select the button element
-  #submitBtn = /** @type {HTMLButtonElement}*/ (
-    document.querySelector('.btn-submit')
-  );
 
   // Select the loading spinner
   #loadingSpinner = /** @type {HTMLDivElement} */ (
