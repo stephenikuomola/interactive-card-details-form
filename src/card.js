@@ -1,10 +1,3 @@
-// TODO
-
-// 1. When the user passes in an incorrect input and submits the form, we want to show them an error message on all inputs shown. This means we need to handle all the errors at once.
-
-// 2. When the users passes the incorrect data we want it to update real time on the card. However, they won't still be able to submit the form.
-
-// 3. When the user passes the right data in and the form is submitted we want to asynchronously load a spinner for 10 seconds and then we will show the feedback message.
 
 /**
  * This is a form component

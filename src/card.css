@@ -179,11 +179,6 @@ body {
   background-color: var(--white);
 }
 
-button {
-  appearance: none;
-  background: none;
-  border: none;
-}
 
 main {
   min-height: 100vh;
@@ -372,6 +367,7 @@ p[class~="active"] {
 
 /* Styling the buttons */
 button {
+  appearance: none;
   display: var(--block);
   background-color: var(--very-dark-violet);
   width: 100%;
@@ -498,13 +494,7 @@ img[alt="complete-icon"] {
   .main {
     display: flex;
   }
-
-  .interactive-card__container {
-    background-image: url("/assets/images/bg-main-desktop.png");
-    padding: unset;
-    position: relative;
-  }
-
+  
   .container__image-front,
   .container__image-back {
     width: 350px;
@@ -523,6 +513,9 @@ img[alt="complete-icon"] {
   }
 
   .interactive-card__container {
+    background-image: url("/assets/images/bg-main-desktop.png");
+    padding: unset;
+    position: relative;
     flex-basis: 35%;
     display: flex;
     justify-content: center;
